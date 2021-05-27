@@ -15,13 +15,19 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css?h=449f4b671c2f4e3dca467ef16eabb834">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i">
+    <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css?h=c1c8b08f8e093bbf2ff10464a2cce6e7">
+    <link rel="stylesheet" href="assets/css/untitled-1.css?h=33a7f1914e98938767e06f5c7331dcaa">
+    <link rel="stylesheet" href="assets/css/untitled.css?h=d1e732b24b81e6d075b0e67501c035cd">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark navbar-custom">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -75,9 +81,28 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <header class="text-center text-white masthead mb-5">
+            <div class="masthead-content">
+                <div class="container">
+                    <h1 class="masthead-heading mb-0">Lweet</h1>
+                    <h2 class="masthead-subheading mb-0">Connecting People</h2><a class="btn btn-primary btn-xl rounded-pill mt-5" role="button" href="#body">Learn More</a>
+                </div>
+            </div>
+            <div class="bg-circle-1 bg-circle"></div>
+            <div class="bg-circle-2 bg-circle"></div>
+            <div class="bg-circle-3 bg-circle"></div>
+            <div class="bg-circle-4 bg-circle"></div>
+        </header>
+
+        <main>
             @yield('content')
         </main>
     </div>
+    <footer class="py-5 mt-5 bg-black">
+        <div class="container">
+            <p class="text-center text-white m-0 small">Copyright&nbsp;© Lweet 2021</p>
+        </div>
+    </footer>
+    <script src="assets/bootstrap/js/bootstrap.min.js?h=19bbdecfa6ce3c33e1aa42dc000a8eb4"></script>
 </body>
 </html>
