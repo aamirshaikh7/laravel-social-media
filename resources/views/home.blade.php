@@ -17,7 +17,9 @@
                     @include ('includes.publish')
                 </div>
                 <div>
-                    @include ('includes.lweet')
+                    @foreach ($lweets as $lweet)
+                        @include ('includes.lweet')
+                    @endforeach
                 </div>
             </div>
         </section>
