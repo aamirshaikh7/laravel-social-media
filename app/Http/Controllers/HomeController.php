@@ -24,6 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home', ['lweets' => Lweet::all()]);
+        return view('home',[
+            'lweets' => auth()->user()->timeline()
+        ]);
     }
 }
