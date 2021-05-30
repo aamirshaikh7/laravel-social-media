@@ -46,6 +46,10 @@ class User extends Authenticatable
         return Lweet::where('user_id', $this->id)->latest()->get();
     }
 
+    public function getProfileAttribute () {
+        return "https://i.pravatar.cc/50?u=" . $this->email;
+    }
+
     public function lweets () {
         return $this->hasMany(Lweet::class);
     }
