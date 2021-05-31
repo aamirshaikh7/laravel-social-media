@@ -53,4 +53,8 @@ class User extends Authenticatable
     public function lweets () {
         return $this->hasMany(Lweet::class);
     }
+
+    public function follows () {
+        return $this->belongsToMany(User::class, 'follows', 'user_id', 'following_user_id');
+    }
 }

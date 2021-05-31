@@ -6,6 +6,6 @@
     @error ('body')
         <p class="text-danger">{{ $message }}</p>
     @enderror
-    <img src="{{ auth()->user()->profile }}" alt="profile">
+    <img class="rounded-circle" src="{{ auth()->user()->profile }}" alt="profile">
     <button class="btn btn-secondary border rounded-pill float-end" type="submit">Lweet it</button>
 </form>
