@@ -19,6 +19,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::middleware('auth')->group(function () {
+    Route::get('/lweets', [App\Http\Controllers\LweetController::class, 'index'])->name('home');
 
-Route::post('/lweets', [App\Http\Controllers\LweetController::class, 'store'])->name('lweets.store');
+    Route::post('/lweets', [App\Http\Controllers\LweetController::class, 'store'])->name('lweets.store');
+});
