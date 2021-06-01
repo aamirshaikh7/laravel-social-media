@@ -43,7 +43,10 @@ class User extends Authenticatable
     ];
 
     public function timeline () {
-        return Lweet::where('user_id', $this->id)->latest()->get();
+        $ids = $this->follows()->pluck('id');
+        $ids->push($this->id);
+
+        return Lweet::whereIn('user_id', $ids)->latest()->get();
     }
 
     public function getProfileAttribute () {
