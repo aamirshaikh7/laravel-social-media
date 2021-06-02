@@ -14,7 +14,7 @@ class LweetController extends Controller
      */
     public function index()
     {
-        return view('home',[
+        return view('lweets.index',[
             'lweets' => auth()->user()->timeline()
         ]);
     }
