@@ -6,9 +6,6 @@
     <div class="p-5">
         @include ('includes.publish')
     </div>
-    <div>
-        @foreach ($lweets as $lweet)
-            @include ('includes.lweet')
-        @endforeach
-    </div>
+    
+    @include('includes.timeline')
 @endsection
