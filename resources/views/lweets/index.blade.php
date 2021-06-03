@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@include('cover')
+@include('includes.cover')
 
 @section('content')
     <div class="p-5">

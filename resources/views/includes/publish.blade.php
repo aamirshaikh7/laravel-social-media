@@ -6,6 +6,8 @@
     @error ('body')
         <p class="text-danger">{{ $message }}</p>
     @enderror
-    <img class="rounded-circle" src="{{ auth()->user()->profile }}" alt="profile">
+    <a href="{{ route('profiles.show', auth()->user()) }}">
+        <img class="rounded-circle" src="{{ auth()->user()->profile }}" alt="profile">
+    </a>
     <button class="btn btn-secondary border rounded-pill float-end" type="submit">Lweet it</button>
 </form>
