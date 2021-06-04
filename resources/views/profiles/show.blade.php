@@ -1,10 +1,8 @@
-@extends('layouts.app')
-
-@section('content')
+<x-app>
     <div class="container pb-6">
         <div class="row">
             <div class="col-sm-6">
-                <img class="rounded-circle" src="{{ $user->profile }}" alt="your profile" width="50" height="50">
+                <img class="rounded-circle" src="{{ $user->profile }}" alt="your profile" width="60" height="60">
                 <h4>{{ $user->name }}</h4>
                 <p cl>Joined {{ $user->created_at->diffForHumans() }}</p>
             </div>
@@ -19,4 +17,4 @@
     </div>
 
     @include('includes.timeline', ['lweets' => $user->lweets])
-@endsection
+</x-app>

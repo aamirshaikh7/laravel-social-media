@@ -1,11 +1,8 @@
-@extends('layouts.app')
-
 @include('includes.cover')
-
-@section('content')
+<x-app>
     <div class="p-5">
         @include ('includes.publish')
     </div>
     
     @include('includes.timeline')
-@endsection
+</x-app>
