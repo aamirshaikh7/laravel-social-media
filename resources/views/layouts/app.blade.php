@@ -84,7 +84,7 @@
         <main>
             @auth
                 <div class="row" id="body">
-                    <div class="col-sm-12 col-lg-3 pt-5">
+                    <div class="col-sm-12 col-lg-3">
                         <section>
                             <div class="container">
                                 @include ('includes.sidebar-links')
@@ -92,7 +92,7 @@
                         </section>
                     </div>
                 
-                    <div class="col-sm-12 col-lg-6 pt-5">
+                    <div class="col-sm-12 col-lg-6">
                         <section>
                             <div class="container">
                                 @yield('content')
@@ -100,7 +100,7 @@
                         </section>
                     </div>
                 
-                    <div class="col-sm-12 col-lg-3 pt-5">
+                    <div class="col-sm-12 col-lg-3">
                         <section>
                             <div class="container">
                                 @include ('includes.friends-list')

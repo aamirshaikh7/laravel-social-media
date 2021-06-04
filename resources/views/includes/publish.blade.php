@@ -7,7 +7,7 @@
         <p class="text-danger">{{ $message }}</p>
     @enderror
     <a href="{{ route('profiles.show', auth()->user()) }}">
-        <img class="rounded-circle" src="{{ auth()->user()->profile }}" alt="profile">
+        <img class="rounded-circle" src="{{ auth()->user()->profile }}" alt="your profile" width="50" height="50">
     </a>
-    <button class="btn btn-secondary border rounded-pill float-end" type="submit">Lweet it</button>
+    <button class="btn btn-primary border rounded-pill float-end" type="submit">Lweet it</button>
 </form>

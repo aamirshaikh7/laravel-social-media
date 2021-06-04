@@ -50,11 +50,11 @@ class User extends Authenticatable
     }
 
     public function getProfileAttribute () {
-        return "https://i.pravatar.cc/50?u=" . $this->email;
+        return "https://i.pravatar.cc/200?u=" . $this->email;
     }
 
     public function lweets () {
-        return $this->hasMany(Lweet::class);
+        return $this->hasMany(Lweet::class)->latest();
     }
 
     public function follow (User $user) {

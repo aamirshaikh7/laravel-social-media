@@ -45,7 +45,7 @@ class LweetController extends Controller
 
         $lweet->save();
 
-        return redirect('/home');
+        return redirect(route('home'));
     }
 
     /**

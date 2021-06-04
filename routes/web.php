@@ -23,6 +23,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/lweets', [App\Http\Controllers\LweetController::class, 'index'])->name('home');
 
     Route::post('/lweets', [App\Http\Controllers\LweetController::class, 'store'])->name('lweets.store');
-});
 
-Route::get('profiles/{user}', [App\Http\Controllers\ProfileController::class, 'show'])->name('profiles.show');
+    Route::get('profiles/{user}', [App\Http\Controllers\ProfileController::class, 'show'])->name('profiles.show');
+});

@@ -3,7 +3,7 @@
     @auth
         @forelse (auth()->user()->follows as $following)
             <a href="{{ route('profiles.show', $following) }}" class="list-group-item list-group-item-action" href="#">
-                <img class="rounded-circle" src="{{ $following->profile }}" alt="">
+                <img class="rounded-circle" src="{{ $following->profile }}" alt="profile" width="50" height="50">
                 <h4 class="card-title">{{ $following->name }}</h4>
             </a>
         @empty
