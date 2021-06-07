@@ -7,6 +7,10 @@ trait Followable {
         return $this->follows()->save($user);
     }
     
+    public function isFollowing ($user) {
+        return $this->follows->contains($user);
+    }
+    
     public function follows () {
         return $this->belongsToMany(User::class, 'follows', 'user_id', 'following_user_id');
     }

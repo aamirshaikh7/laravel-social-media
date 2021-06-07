@@ -11,7 +11,7 @@
                     @csrf
                     
                     <button href="" type="submit" class="btn rounded-pill btn-primary">
-                        Follow
+                        {{ auth()->user()->isFollowing($user) ? 'Unfollow' : 'Follow' }}
                     </button>
                 </form>
                 <a href="" class="btn rounded-pill btn-secondary">Edit Profile</a>
