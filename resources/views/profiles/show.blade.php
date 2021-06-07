@@ -7,7 +7,13 @@
                 <p cl>Joined {{ $user->created_at->diffForHumans() }}</p>
             </div>
             <div class="col-sm-6" align="right">
-                <a href="" class="btn rounded-pill btn-primary">Follow</a>
+                <form method="POST" action="{{ route('follow.store', $user) }}">
+                    @csrf
+                    
+                    <button href="" type="submit" class="btn rounded-pill btn-primary">
+                        Follow
+                    </button>
+                </form>
                 <a href="" class="btn rounded-pill btn-secondary">Edit Profile</a>
             </div>
             <div class="col-sm-12">

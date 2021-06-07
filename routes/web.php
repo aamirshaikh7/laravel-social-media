@@ -25,4 +25,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/lweets', [App\Http\Controllers\LweetController::class, 'store'])->name('lweets.store');
 
     Route::get('profiles/{user}', [App\Http\Controllers\ProfileController::class, 'show'])->name('profiles.show');
+
+    Route::post('/profiles/{user}/follow', [App\Http\Controllers\FollowController::class, 'store'])->name('follow.store');
 });
