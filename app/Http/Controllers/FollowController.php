@@ -15,7 +15,11 @@ class FollowController extends Controller
      */
     public function store(Request $request, User $user)
     {
-        auth()->user()->follow($user);
+        if (! auth()->user()->isFollowing($user)) {
+            auth()->user()->follow($user);
+        } else {
+            auth()->user()->unFollow($user);
+        }
 
         return back();
     }
