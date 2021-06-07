@@ -1,6 +1,6 @@
 <div class="card border rounded mb-2">
     <div class="card-body">
-        <a href="{{ route('profiles.show', $lweet->user) }}">
+        <a href="{{ $lweet->user->profilePath() }}">
             <img class="rounded-circle" src="{{ $lweet->user->profile }}" alt="profile" width="50" height="50">
             <h4 class="card-title">{{ $lweet->user->name }}</h4>
         </a>

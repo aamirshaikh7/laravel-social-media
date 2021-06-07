@@ -56,8 +56,8 @@ class User extends Authenticatable
     public function lweets () {
         return $this->hasMany(Lweet::class)->latest();
     }
-    
-    public function getRouteKeyName () {
-        return 'name';
+
+    public function profilePath () {
+        return route('profiles.show', $this);
     }
 }
