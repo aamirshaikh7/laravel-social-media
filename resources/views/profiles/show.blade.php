@@ -7,14 +7,19 @@
                 <p cl>Joined {{ $user->created_at->diffForHumans() }}</p>
             </div>
             <div class="col-sm-6" align="right">
-                <form method="POST" action="{{ route('follow.store', $user) }}">
-                    @csrf
-                    
-                    <button href="" type="submit" class="btn rounded-pill btn-primary">
-                        {{ auth()->user()->isFollowing($user) ? 'Unfollow' : 'Follow' }}
-                    </button>
-                </form>
-                <a href="" class="btn rounded-pill btn-secondary">Edit Profile</a>
+                @if (! auth()->user()->is($user))
+                    <form method="POST" action="{{ route('follow.store', $user) }}">
+                        @csrf
+                        
+                        <button href="" type="submit" class="btn rounded-pill btn-primary">
+                            {{ auth()->user()->isFollowing($user) ? 'Unfollow' : 'Follow' }}
+                        </button>
+                    </form>
+                @endif
+                
+                @if (auth()->user()->is($user))
+                    <a href="" class="btn rounded-pill btn-secondary">Edit Profile</a>
+                @endif
             </div>
             <div class="col-sm-12">
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id itaque fugit, amet magnam molestiae dignissimos tenetur adipisci vero in deserunt sed, repellendus temporibus doloremque exercitationem laboriosam eaque aspernatur voluptatibus veritatis.</p>
