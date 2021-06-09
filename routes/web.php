@@ -24,9 +24,9 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/lweets', [App\Http\Controllers\LweetController::class, 'store'])->name('lweets.store');
 
-    Route::get('profiles/{user:name}', [App\Http\Controllers\ProfileController::class, 'show'])->name('profiles.show');
+    Route::get('profiles/{user:username}', [App\Http\Controllers\ProfileController::class, 'show'])->name('profiles.show');
     
-    Route::get('/profiles/{user:name}/edit', [App\Http\Controllers\ProfileController::class, 'edit'])->name('profiles.edit');
+    Route::get('/profiles/{user:username}/edit', [App\Http\Controllers\ProfileController::class, 'edit'])->name('profiles.edit');
 
-    Route::post('/profiles/{user:name}/follow', [App\Http\Controllers\FollowController::class, 'store'])->name('follow.store');
+    Route::post('/profiles/{user:username}/follow', [App\Http\Controllers\FollowController::class, 'store'])->name('follow.store');
 });
