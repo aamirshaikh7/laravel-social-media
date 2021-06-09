@@ -1,5 +1,5 @@
 <x-app>
-    <div class="container pb-6">
+    <div class="container pl-5">
         <div class="row">
             <div class="col-sm-6">
                 <img class="rounded-circle" src="{{ $user->profile }}" alt="your profile" width="60" height="60">
@@ -18,7 +18,7 @@
                 @endif
                 
                 @if (auth()->user()->is($user))
-                    <a href="" class="btn rounded-pill btn-secondary">Edit Profile</a>
+                    <a href="{{ route('profiles.edit', $user) }}" class="btn rounded-pill btn-secondary">Edit Profile</a>
                 @endif
             </div>
             <div class="col-sm-12">

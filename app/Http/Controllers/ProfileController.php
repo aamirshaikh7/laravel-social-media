@@ -17,4 +17,19 @@ class ProfileController extends Controller
     {
         return view('profiles.show', compact('user'));
     }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(User $user)
+    {
+        if (auth()->user()->is($user)) {
+            return view('profiles.edit', compact('user'));
+        } else {
+            abort('403');
+        }
+    }
 }
