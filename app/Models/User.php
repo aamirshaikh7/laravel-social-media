@@ -60,4 +60,8 @@ class User extends Authenticatable
     public function profilePath () {
         return route('profiles.show', $this);
     }
+
+    public function authorizeProfile (User $user) {
+        return $this->is($user);
+    }
 }

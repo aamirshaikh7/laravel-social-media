@@ -7,7 +7,7 @@
                 <p cl>Joined {{ $user->created_at->diffForHumans() }}</p>
             </div>
             <div class="col-sm-6" align="right">
-                @if (! auth()->user()->is($user))
+                @if (! auth()->user()->authorizeProfile($user))
                     <form method="POST" action="{{ route('follow.store', $user) }}">
                         @csrf
                         
@@ -17,7 +17,7 @@
                     </form>
                 @endif
                 
-                @if (auth()->user()->is($user))
+                @if (auth()->user()->authorizeProfile($user))
                     <a href="{{ route('profiles.edit', $user) }}" class="btn rounded-pill btn-secondary">Edit Profile</a>
                 @endif
             </div>
