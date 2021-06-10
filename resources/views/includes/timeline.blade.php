@@ -1,5 +1,9 @@
 <div>
-    @foreach ($lweets as $lweet)
+    @forelse ($lweets as $lweet)
         @include ('includes.lweet')
-    @endforeach
+    @empty
+        <a class="list-group-item list-group-item-action user-select-none">
+            <h4 class="lead card-title">You have no lweets at this moment !</h4>
+        </a>
+    @endforelse
 </div>

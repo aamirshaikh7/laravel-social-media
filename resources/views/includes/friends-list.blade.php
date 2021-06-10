@@ -7,7 +7,9 @@
                 <h4 class="card-title">{{ $following->name }}</h4>
             </a>
         @empty
-            <p>You are not following anyone at this moment</p>
+            <a class="list-group-item list-group-item-action user-select-none">
+                <h4 class="lead card-title">You are not following anyone at this moment !</h4>
+            </a>
         @endforelse
     @endauth
 </div>
