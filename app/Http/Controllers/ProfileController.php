@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
@@ -43,12 +44,26 @@ class ProfileController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $user->update(request()->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'username' => ['required', 'string', 'max:255', 'alpha_dash', Rule::unique('users')->ignore($user)],
-            'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user)],
-            'password' => ['required', 'string', 'min:6', 'max:255', 'confirmed']
-        ]));
+        if (! request('password')) {
+            $attributes = request()->validate([
+                'username' => ['required', 'string', 'max:255', 'alpha_dash', Rule::unique('users')->ignore($user)],
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user)]
+            ]);
+
+            $attributes['password'] = $user->password;
+        } else {
+            $attributes = request()->validate([
+                'username' => ['required', 'string', 'max:255', 'alpha_dash', Rule::unique('users')->ignore($user)],
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user)],
+                'password' => ['required', 'string', 'min:6', 'max:255', 'confirmed']
+            ]);
+        }
+        
+        $attributes['password'] = Hash::make(request('password'));
+
+        $user->update($attributes);
 
         return redirect($user->profilePath());
     }
