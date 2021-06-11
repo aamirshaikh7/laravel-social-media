@@ -8,16 +8,16 @@
                     @method ('PATCH')
                     
                     <div class="form-group">
-                        <input value="{{ $user->name }}" class="border rounded border-dark form-control" type="text" name="name" placeholder="Name" style="background: rgba(255,255,255,0);" />
+                        <input value="{{ $user->username }}" class="border rounded border-dark form-control" type="text" name="username" placeholder="Username" style="background: rgba(255,255,255,0);" />
                         
-                        @error ('name')
+                        @error ('username')
                             <p class="text-danger">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <input value="{{ $user->username }}" class="border rounded border-dark form-control" type="text" name="username" placeholder="Username" style="background: rgba(255,255,255,0);" />
+                        <input value="{{ $user->name }}" class="border rounded border-dark form-control" type="text" name="name" placeholder="Name" style="background: rgba(255,255,255,0);" />
                         
-                        @error ('username')
+                        @error ('name')
                             <p class="text-danger">{{ $message }}</p>
                         @enderror
                     </div>
