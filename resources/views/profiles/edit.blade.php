@@ -3,7 +3,7 @@
         <h2 class="text-capitalize pb-4">Edit profile</h2>
         <div class="row">
             <div class="col-lg-8">
-                <form class="pt-2" method="POST" action="{{ $user->profilePath() }}">
+                <form class="pt-2" method="POST" action="{{ $user->profilePath() }}" enctype="multipart/form-data">
                     @csrf
                     @method ('PATCH')
                     
@@ -18,6 +18,14 @@
                         <input value="{{ $user->name }}" class="border rounded border-dark form-control" type="text" name="name" placeholder="Name" style="background: rgba(255,255,255,0);" />
                         
                         @error ('name')
+                            <p class="text-danger">{{ $message }}</p>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <input value="{{ $user->profile }}" class="mb-2 border rounded border-dark form-control" type="file" name="profile" placeholder="Profile Picture" style="background: rgba(255,255,255,0);" />
+                        <img width="50px" height="50px" src="{{ $user->profile }}" alt="your profile">
+                        
+                        @error ('profile')
                             <p class="text-danger">{{ $message }}</p>
                         @enderror
                     </div>

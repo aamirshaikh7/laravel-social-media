@@ -48,6 +48,7 @@ class ProfileController extends Controller
             $attributes = request()->validate([
                 'username' => ['required', 'string', 'max:255', 'alpha_dash', Rule::unique('users')->ignore($user)],
                 'name' => ['required', 'string', 'max:255'],
+                'profile' => ['required', 'file'],
                 'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user)]
             ]);
 
@@ -56,10 +57,13 @@ class ProfileController extends Controller
             $attributes = request()->validate([
                 'username' => ['required', 'string', 'max:255', 'alpha_dash', Rule::unique('users')->ignore($user)],
                 'name' => ['required', 'string', 'max:255'],
+                'profile' => ['required', 'file'],
                 'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user)],
                 'password' => ['required', 'string', 'min:6', 'max:255', 'confirmed']
             ]);
         }
+        
+        $attributes['profile'] = request('profile')->store('profiles');
         
         $attributes['password'] = Hash::make(request('password'));
 

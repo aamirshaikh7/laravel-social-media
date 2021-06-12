@@ -20,6 +20,7 @@ class User extends Authenticatable
     protected $fillable = [
         'username',
         'name',
+        'profile',
         'email',
         'password',
     ];
@@ -50,8 +51,8 @@ class User extends Authenticatable
         return Lweet::whereIn('user_id', $ids)->latest()->get();
     }
 
-    public function getProfileAttribute () {
-        return "https://i.pravatar.cc/200?u=" . $this->email;
+    public function getProfileAttribute ($value) {
+        return asset('storage/' . $value);
     }
 
     public function lweets () {
