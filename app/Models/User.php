@@ -52,7 +52,11 @@ class User extends Authenticatable
     }
 
     public function getProfileAttribute ($value) {
-        return asset('storage/' . $value);
+        if ($value) {
+            return asset('storage/' . $value);
+        } else {
+            return asset('storage/profiles/profile.jpg');
+        }
     }
 
     public function lweets () {
