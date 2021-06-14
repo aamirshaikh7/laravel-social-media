@@ -31,4 +31,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('profiles/{user:username}', [App\Http\Controllers\ProfileController::class, 'update'])->name('profiles.update');
     
     Route::post('/profiles/{user:username}/follow', [App\Http\Controllers\FollowController::class, 'store'])->name('follow.store');
+
+    Route::get('/explore', [App\Http\Controllers\ExploreController::class, 'index'])->name('explore.index');
 });
