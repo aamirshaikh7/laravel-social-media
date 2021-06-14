@@ -44,30 +44,23 @@ class ProfileController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        if (! request('password')) {
-            $attributes = request()->validate([
-                'username' => ['required', 'string', 'max:255', 'alpha_dash', Rule::unique('users')->ignore($user)],
-                'name' => ['required', 'string', 'max:255'],
-                'profile' => ['file'],
-                'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user)]
-            ]);
+        $attributes = request()->validate([
+            'username' => ['required', 'string', 'max:255', 'alpha_dash', Rule::unique('users')->ignore($user)],
+            'name' => ['required', 'string', 'max:255'],
+            'profile' => ['file'],
+            'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user)],
+            'password' => ['max:255', 'confirmed']
+        ]);
 
+        if (! request('password')) {
             $attributes['password'] = $user->password;
-        } else {
-            $attributes = request()->validate([
-                'username' => ['required', 'string', 'max:255', 'alpha_dash', Rule::unique('users')->ignore($user)],
-                'name' => ['required', 'string', 'max:255'],
-                'profile' => ['file'],
-                'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user)],
-                'password' => ['required', 'string', 'min:6', 'max:255', 'confirmed']
-            ]);
         }
+
+        $attributes['password'] = Hash::make(request('password'));
         
         if (request('profile')) {
             $attributes['profile'] = request('profile')->store('profiles');
         }
-        
-        $attributes['password'] = Hash::make(request('password'));
 
         $user->update($attributes);
 
