@@ -17,7 +17,7 @@ class ProfileController extends Controller
      */
     public function show(User $user)
     {
-        return view('profiles.show', compact('user'));
+        return view('profiles.show', ['user' => $user, 'lweets' => $user->lweets()->paginate(10)]);
     }
 
     /**
@@ -57,7 +57,7 @@ class ProfileController extends Controller
         } else {
             $attributes['password'] = Hash::make(request('password'));
         }
-        
+
         if (request('profile')) {
             $attributes['profile'] = request('profile')->store('profiles');
         }

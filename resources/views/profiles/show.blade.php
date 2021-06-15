@@ -27,5 +27,5 @@
         </div>
     </div>
 
-    @include('includes.timeline', ['lweets' => $user->lweets])
+    @include('includes.timeline', ['lweets' => $lweets])
 </x-app>

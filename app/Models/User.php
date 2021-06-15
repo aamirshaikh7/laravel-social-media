@@ -48,7 +48,7 @@ class User extends Authenticatable
         $ids = $this->follows()->pluck('id');
         $ids->push($this->id);
 
-        return Lweet::whereIn('user_id', $ids)->latest()->get();
+        return Lweet::whereIn('user_id', $ids)->latest()->paginate(10);
     }
 
     public function getProfileAttribute ($value) {
