@@ -50,7 +50,8 @@
                             <p class="text-danger">{{ $message }}</p>
                         @enderror
                     </div>
-                    <div class="form-group text-right">
+                    <div class="form-group">
+                        <a class="btn btn-secondary" href="{{ $user->profilePath() }}">Back</a>
                         <button class="btn btn-primary text-light" type="submit">
                             Update Profile
                         </button>
