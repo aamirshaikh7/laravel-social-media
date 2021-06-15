@@ -54,9 +54,9 @@ class ProfileController extends Controller
 
         if (! request('password')) {
             $attributes['password'] = $user->password;
+        } else {
+            $attributes['password'] = Hash::make(request('password'));
         }
-
-        $attributes['password'] = Hash::make(request('password'));
         
         if (request('profile')) {
             $attributes['profile'] = request('profile')->store('profiles');
