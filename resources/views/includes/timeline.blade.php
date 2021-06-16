@@ -6,8 +6,7 @@
             <h4 class="lead card-title">No lweets at this moment !</h4>
         </a>
     @endforelse
-    <div class="pb-2"></div>
-    <div align="center">
+    <div align="center pt-2">
         {{ $lweets->links() }}
     </div>
 </div>
