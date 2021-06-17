@@ -22,6 +22,7 @@ class CreateLikesTable extends Migration
                   ->constrained()
                   ->onDelete('cascade');
             $table->boolean('is_liked');
+            $table->unique(['user_id', 'lweet_id']);
             $table->timestamps();
         });
     }
