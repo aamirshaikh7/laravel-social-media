@@ -3,20 +3,16 @@
 namespace App\Models;
 
 trait Likable {
-    public function like (User $user = null) {
+    public function like (User $user = null, $like = true) {
         $this->likes()->updateOrCreate([
             'user_id' => $user ? $user->id : auth()->id(),
         ], [
-            'is_liked' => true
+            'is_liked' => $like
         ]);
     }
 
     public function dislike (User $user = null) {
-        $this->likes()->updateOrCreate([
-            'user_id' => $user ? $user->id : auth()->id(),
-        ], [
-            'is_liked' => false
-        ]);
+        return $this->like($user, false);
     }
 
     public function likes () {
