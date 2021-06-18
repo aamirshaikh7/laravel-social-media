@@ -15,6 +15,14 @@ trait Likable {
         return $this->like($user, false);
     }
 
+    public function isLikedBy (User $user, $like = true) {
+        return (bool) $user->likes->where('lweet_id', $this->id)->where('is_liked', $like)->count();
+    }
+
+    public function isDislikedBy (User $user) {
+        return $this->isLikedBy($user, false);
+    }
+
     public function likes () {
         return $this->hasMany(Like::class);
     }

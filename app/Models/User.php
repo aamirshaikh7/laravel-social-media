@@ -70,4 +70,8 @@ class User extends Authenticatable
     public function authorizeProfile (User $user) {
         return $this->is($user);
     }
+
+    public function likes () {
+        return $this->hasMany(Like::class);
+    }
 }
