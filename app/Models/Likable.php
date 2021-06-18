@@ -2,7 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
+
 trait Likable {
+    public function scopeWithLikes (Builder $query) {
+        $query->leftJoinSub('SELECT lweet_id, sum(is_liked) likes FROM likes GROUP BY lweet_id', 'likes', 'likes.lweet_id', 'lweets.id');
+    }
+
     public function like (User $user = null, $like = true) {
         $this->likes()->updateOrCreate([
             'user_id' => $user ? $user->id : auth()->id(),
