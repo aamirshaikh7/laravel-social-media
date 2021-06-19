@@ -17,7 +17,7 @@ trait Likable {
         ]);
     }
 
-    public function dislike (User $user = null) {
+    public function unlike (User $user = null) {
         return $this->like($user, false);
     }
 

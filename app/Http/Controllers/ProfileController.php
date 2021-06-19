@@ -17,7 +17,7 @@ class ProfileController extends Controller
      */
     public function show(User $user)
     {
-        return view('profiles.show', ['user' => $user, 'lweets' => $user->lweets()->paginate(10)]);
+        return view('profiles.show', ['user' => $user, 'lweets' => $user->lweets()->withLikes()->paginate(10)]);
     }
 
     /**

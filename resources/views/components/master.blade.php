@@ -88,6 +88,7 @@
             <p class="text-center text-white m-0 small">Copyright&nbsp;© Lweet 2021</p>
         </div>
     </footer>
+    <script src="http://unpkg.com/turbolinks"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js?h=19bbdecfa6ce3c33e1aa42dc000a8eb4"></script>
 </body>
 </html>

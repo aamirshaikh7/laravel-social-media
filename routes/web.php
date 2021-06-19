@@ -24,6 +24,8 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/lweets', [App\Http\Controllers\LweetController::class, 'store'])->name('lweets.store');
 
+    Route::post('/lweets/{lweet}/like', [App\Http\Controllers\LweetLikeUnlikeController::class, 'store'])->name('lweets.like.store');
+    
     Route::get('profiles/{user:username}', [App\Http\Controllers\ProfileController::class, 'show'])->name('profiles.show');
     
     Route::get('/profiles/{user:username}/edit', [App\Http\Controllers\ProfileController::class, 'edit'])->name('profiles.edit');
@@ -31,6 +33,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('profiles/{user:username}', [App\Http\Controllers\ProfileController::class, 'update'])->name('profiles.update');
     
     Route::post('/profiles/{user:username}/follow', [App\Http\Controllers\FollowController::class, 'store'])->name('follow.store');
-
+    
     Route::get('/explore', [App\Http\Controllers\ExploreController::class, 'index'])->name('explore.index');
 });
