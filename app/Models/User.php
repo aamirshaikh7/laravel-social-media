@@ -74,4 +74,8 @@ class User extends Authenticatable
     public function likes () {
         return $this->hasMany(Like::class);
     }
+    
+    public function relweets () {
+        return $this->hasMany(Relweet::class);
+    }
 }

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Lweet extends Model
 {
-    use HasFactory, Likable;
+    use HasFactory, Relweetable, Likable;
 
     protected $fillable = ['body'];
     
