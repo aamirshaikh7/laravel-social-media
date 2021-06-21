@@ -21,6 +21,10 @@ trait Relweetable {
         return $this->relweet($user, false);
     }
 
+    public function isRelweetedBy(User $user) {
+        return (bool) $user->relweets->where('lweet_id', $this->id)->where('is_relweeted', true)->count();
+    }
+
     public function relweets () {
         return $this->hasMany(Relweet::class);
     }

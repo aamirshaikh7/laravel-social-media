@@ -12,7 +12,7 @@
                     <path d="M3 10H13C17.4183 10 21 13.5817 21 18V20M3 10L9 16M3 10L9 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg> 2
             </a>
-            <a href="#">
+            <a href="#" class="@if ($lweet->isRelweetedBy(auth()->user())) text-info @else text-dark @endif">
                 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-repeat">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                     <path d="M4 12v-3a3 3 0 0 1 3 -3h13m-3 -3l3 3l-3 3"></path>
