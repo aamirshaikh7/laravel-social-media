@@ -5,6 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Builder;
 
 trait Relweetable {
+    public function scopeWithRelweets (Builder $query) {
+        $query->leftJoinSub('SELECT lweet_id, sum(is_relweeted) relweets FROM relweets group by lweet_id', 'relweets', 'relweets.lweet_id', 'lweets.id');
+    }
+
     public function relweet (User $user = null, $relweet = true) {
         $this->relweets()->updateOrCreate([
             'user_id' => $user ? $user->id : auth()->id()
