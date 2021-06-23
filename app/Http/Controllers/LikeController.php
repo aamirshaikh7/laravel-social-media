@@ -4,9 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Lweet;
+use App\Models\User;
 
-class LweetLikeUnlikeController extends Controller
+class LikeController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(User $user)
+    {
+        return view('profiles.likes', ['user' => $user, 'lweets' => $user->liked()]);
+    }
+    
     /**
      * Store a newly created resource in storage.
      *
