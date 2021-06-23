@@ -27,5 +27,21 @@
         </div>
     </div>
 
+    <div class="card mb-4 mt-2">
+        <div class="card-body">
+            <ul class="nav nav-pills nav-fill">
+                <li class="nav-item">
+                  <a class="nav-link {{ Request::path() === 'profiles/' . $user->username ? 'active' : '' }}" href="{{ route('profiles.show', $user) }}">Timeline</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Relweets</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Likes</a>
+                  </li>
+            </ul>
+        </div>
+    </div>
+
     @include('includes.timeline', ['lweets' => $lweets])
 </x-app>
