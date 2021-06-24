@@ -33,7 +33,7 @@
               <a class="nav-link {{ Request::path() === 'profiles/' . $user->username ? 'active' : '' }}" href="{{ route('profiles.show', $user) }}">Timeline</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Relweets</a>
+              <a class="nav-link {{ Request::path() === 'profiles/' . $user->username . '/relweets' ? 'active' : '' }}" href="{{ route('relweets.index', $user) }}">Relweets</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link {{ Request::path() === 'profiles/' . $user->username . '/likes' ? 'active' : '' }}" href="{{ route('likes.index', $user) }}">Likes</a>

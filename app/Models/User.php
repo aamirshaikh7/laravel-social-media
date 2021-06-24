@@ -50,11 +50,17 @@ class User extends Authenticatable
 
         return Lweet::whereIn('user_id', $ids)->withRelweets()->withLikes()->latest()->paginate(10);
     }
+    
+    public function relweeted () {
+        $ids = $this->relweets->where('user_id', $this->id)->where('is_relweeted', true)->pluck('lweet_id');
+
+        return Lweet::whereIn('id', $ids)->withRelweets()->withLikes()->latest()->paginate(10);
+    }
 
     public function liked () {
-        $lweet_ids = $this->likes->where('user_id', $this->id)->where('is_liked', true)->pluck('lweet_id');
+        $ids = $this->likes->where('user_id', $this->id)->where('is_liked', true)->pluck('lweet_id');
 
-        return Lweet::whereIn('id', $lweet_ids)->withRelweets()->withLikes()->latest()->paginate(10);
+        return Lweet::whereIn('id', $ids)->withRelweets()->withLikes()->latest()->paginate(10);
     }
 
     public function getProfileAttribute ($value) {

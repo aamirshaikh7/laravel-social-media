@@ -4,9 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Lweet;
+use App\Models\User;
 
 class RelweetController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(User $user)
+    {
+        return view('profiles.relweets', ['user' => $user, 'lweets' => $user->relweeted()]);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
