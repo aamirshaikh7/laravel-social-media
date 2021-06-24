@@ -20,9 +20,11 @@
                 <a href="{{ route('profiles.edit', $user) }}" class="btn rounded-pill btn-secondary">Edit Profile</a>
             @endif
         </div>
-        <div class="col-sm-12">
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id itaque fugit, amet magnam molestiae dignissimos tenetur adipisci vero in deserunt sed, repellendus temporibus doloremque exercitationem laboriosam eaque aspernatur voluptatibus veritatis.</p>
-        </div>
+        @if ($user->bio)
+            <div class="col-sm-12">
+                <p>{{ $user->bio }}</p>
+            </div>
+        @endif
     </div>
 </div>
 

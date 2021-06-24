@@ -30,6 +30,13 @@
                         @enderror
                     </div>
                     <div class="form-group">
+                        <textarea class="border rounded border-dark form-control" type="text" name="bio" placeholder="Bio" rows="5" style="background: rgba(255,255,255,0);">{{ $user->bio }}</textarea>
+                        
+                        @error ('bio')
+                            <p class="text-danger">{{ $message }}</p>
+                        @enderror
+                    </div>
+                    <div class="form-group">
                         <input value="{{ $user->email }}" class="border rounded border-dark form-control" type="email" name="email" placeholder="E-mail" style="background: rgba(255,255,255,0);" />
                         
                         @error ('email')
