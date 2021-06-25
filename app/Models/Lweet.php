@@ -9,7 +9,13 @@ class Lweet extends Model
 {
     use HasFactory, Relweetable, Likable;
 
-    protected $fillable = ['body'];
+    protected $fillable = ['body', 'image'];
+    
+    public function getImageAttribute ($value) {
+        if ($value) {
+            return asset('storage/' . $value);
+        }
+    }
     
     public function user () {
         return $this->belongsTo(User::class);

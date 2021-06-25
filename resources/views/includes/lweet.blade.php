@@ -6,6 +6,11 @@
         </a>
         <h6 class="text-muted card-subtitle mb-2">{{ $lweet->created_at->diffForHumans() }}</h6>
         <p class="card-text">{{ $lweet->body }}</p>
+        @if ($lweet->image)
+            <div class="pb-3">
+                <img class="rounded img-fluid border" src="{{ $lweet->image }}" />
+            </div>
+        @endif
         <div style="justify-content: space-between;display: flex;">
             <a href="#">
                 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none">

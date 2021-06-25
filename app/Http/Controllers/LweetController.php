@@ -38,10 +38,15 @@ class LweetController extends Controller
     public function store(Request $request)
     {
         $lweet = new Lweet(request()->validate([
-            'body' => 'required | max:255'
+            'body' => 'required | max:255',
+            'image' => 'file'
         ]));
 
         $lweet->user_id = auth()->user()->id;
+        
+        if (request('image')) {
+            $lweet['image'] = request('image')->store('images');
+        }
 
         $lweet->save();
 
