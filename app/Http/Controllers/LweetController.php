@@ -50,7 +50,7 @@ class LweetController extends Controller
 
         $lweet->save();
 
-        return redirect(route('home'));
+        return redirect(route('home'))->with('lweet_added', 'Lweet added successfully !');
     }
 
     /**

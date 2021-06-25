@@ -17,10 +17,12 @@ class FollowController extends Controller
     {
         if (! auth()->user()->isFollowing($user)) {
             auth()->user()->follow($user);
+
+            return back()->with('user_followed', 'Following - ' . $user->username);
         } else {
             auth()->user()->unFollow($user);
-        }
 
-        return back();
+            return back()->with('user_unfollowed', 'Unfollowed - ' . $user->username);
+        }
     }
 }

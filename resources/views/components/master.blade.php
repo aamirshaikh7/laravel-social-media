@@ -24,6 +24,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" integrity="sha512-6S2HWzVFxruDlZxI3sXOZZ4/eJ8AcxkQH1+JjSe/ONCEqR9L4Ysq5JdT5ipqtzU7WHalNwzwBv+iE51gNHJNqQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <div id="app">
@@ -90,5 +91,31 @@
     </footer>
     <script src="http://unpkg.com/turbolinks"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js?h=19bbdecfa6ce3c33e1aa42dc000a8eb4"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js" integrity="sha512-lbwH47l/tPXJYG9AcFNoJaTMhGvYWhVM9YI43CT+uteTRRaiLCui8snIgyAN8XWgNjNhCqlAUdzZptso6OCoFQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    @if (Session::has('lweet_added'))
+        <script>
+            toastr.success("{!! Session::get('lweet_added') !!}")
+        </script>
+    @endif
+    
+    @if (Session::has('profile_updated'))
+        <script>
+            toastr.info("{!! Session::get('profile_updated') !!}")
+        </script>
+    @endif
+    
+    @if (Session::has('user_followed'))
+        <script>
+            toastr.info("{!! Session::get('user_followed') !!}")
+        </script>
+    @endif
+
+    @if (Session::has('user_unfollowed'))
+        <script>
+            toastr.error("{!! Session::get('user_unfollowed') !!}")
+        </script>
+    @endif
 </body>
 </html>

@@ -31,7 +31,7 @@ class LikeController extends Controller
         } else {
             $lweet->like(auth()->user());
         }
-
+        
         return back();
     }
 }
