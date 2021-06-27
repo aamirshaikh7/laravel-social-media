@@ -20,4 +20,18 @@ class Lweet extends Model
     public function user () {
         return $this->belongsTo(User::class);
     }
+
+    public function matchMention () {
+        $match = preg_match("/@([A-Za-z0-9_]+)/", $this->body);
+        
+        $position = strpos($this->body, '@');
+        
+        $next = $position + 1;
+        
+        return $match;
+    }
+
+    public function stripString () {
+        return $string = preg_replace("/[@]/", '', $this->body);
+    }
 }

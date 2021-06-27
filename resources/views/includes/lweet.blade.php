@@ -5,7 +5,13 @@
             <h4 class="card-title">{{ $lweet->user->name }}</h4>
         </a>
         <h6 class="text-muted card-subtitle mb-2">{{ $lweet->created_at->diffForHumans() }}</h6>
-        <p class="card-text">{{ $lweet->body }}</p>
+        <p class="card-text">
+            @if ($lweet->matchMention())
+                <a href="/profiles/{{ $lweet->stripString() }}">{{ $lweet->body }}</a>
+            @else
+                {{ $lweet->body }}
+            @endif
+        </p>
         @if ($lweet->image)
             <div class="pb-3">
                 <img class="rounded img-fluid border" src="{{ $lweet->image }}" />
