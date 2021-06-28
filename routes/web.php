@@ -39,6 +39,8 @@ Route::middleware('auth')->group(function () {
     Route::get('profiles/{user:username}/likes', [App\Http\Controllers\LikeController::class, 'index'])->name('likes.index');
     
     Route::get('profiles/{user:username}/relweets', [App\Http\Controllers\RelweetController::class, 'index'])->name('relweets.index');
-
+    
+    Route::get('/notifications', [App\Http\Controllers\NotificationController::class, 'index'])->name('notifications.index');
+    
     Route::get('/explore', [App\Http\Controllers\ExploreController::class, 'index'])->name('explore.index');
 });
