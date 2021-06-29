@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Notifications\Followed;
 
 class FollowController extends Controller
 {
@@ -17,6 +18,8 @@ class FollowController extends Controller
     {
         if (! auth()->user()->isFollowing($user)) {
             auth()->user()->follow($user);
+
+            $user->notify(new Followed(auth()->user()));
 
             return back()->with('user_followed', 'Following - ' . $user->username);
         } else {
