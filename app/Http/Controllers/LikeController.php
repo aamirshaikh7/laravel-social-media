@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Lweet;
 use App\Models\User;
+use App\Notifications\Liked;
 
 class LikeController extends Controller
 {
@@ -30,6 +31,8 @@ class LikeController extends Controller
             $lweet->unlike(auth()->user());
         } else {
             $lweet->like(auth()->user());
+
+            $lweet->user->notify(new Liked(auth()->user()));
         }
         
         return back();
