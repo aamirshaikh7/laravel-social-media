@@ -15,6 +15,10 @@
 							<div class="media-body" style="padding-left: 10px">
 									<strong class="notification-title"><a href="profiles/{{ $notification->data['user']['username'] }}">{{ $notification->data['user']['username'] }}</a>
 										@if ($notification->type === 'App\Notifications\Followed') followed you</strong>@endif
+										@if ($notification->type === 'App\Notifications\Relweeted') 
+											Relweeted your lweet
+											<p>{{ $notification->data['lweet']['body'] }}</p>
+										@endif
 										@if ($notification->type === 'App\Notifications\Liked') 
 											Liked your lweet
 											<p>{{ $notification->data['lweet']['body'] }}</p>
