@@ -15,7 +15,11 @@
 							<div class="media-body" style="padding-left: 10px">
 									<strong class="notification-title"><a href="profiles/{{ $notification->data['user']['username'] }}">{{ $notification->data['user']['username'] }}</a>
 										@if ($notification->type === 'App\Notifications\Followed') followed you</strong>@endif
-								<div class="notification-meta">
+										@if ($notification->type === 'App\Notifications\Liked') 
+											Liked your lweet
+											<p>{{ $notification->data['lweet']['body'] }}</p>
+										@endif
+									<div class="notification-meta">
 									<small class="timestamp">{{ $notification->created_at->diffForHumans() }}</small>
 								</div>
 							</div>

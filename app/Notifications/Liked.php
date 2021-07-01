@@ -13,14 +13,17 @@ class Liked extends Notification
 
     protected $user;
 
+    protected $lweet;
+
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($user)
+    public function __construct($user, $lweet)
     {
         $this->user = $user;
+        $this->lweet = $lweet;
     }
 
     /**
@@ -57,7 +60,8 @@ class Liked extends Notification
     public function toArray($notifiable)
     {
         return [
-            'user' => $this->user
+            'user' => $this->user,
+            'lweet' => $this->lweet
         ];
     }
 }

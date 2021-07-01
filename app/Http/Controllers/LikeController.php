@@ -32,7 +32,7 @@ class LikeController extends Controller
         } else {
             $lweet->like(auth()->user());
 
-            $lweet->user->notify(new Liked(auth()->user()));
+            $lweet->user->notify(new Liked(auth()->user(), $lweet));
         }
         
         return back();
