@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Lweet;
 use App\Models\User;
+use App\Notifications\Relweeted;
 
 class RelweetController extends Controller
 {
@@ -30,6 +31,8 @@ class RelweetController extends Controller
             $lweet->undoRelweet(auth()->user());
         } else {
             $lweet->relweet(auth()->user());
+
+            $lweet->user->notify(new Relweeted(auth()->user(), $lweet));
         }
 
         return back();
