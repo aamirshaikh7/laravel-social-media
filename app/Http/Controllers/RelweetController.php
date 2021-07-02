@@ -32,7 +32,9 @@ class RelweetController extends Controller
         } else {
             $lweet->relweet(auth()->user());
 
-            $lweet->user->notify(new Relweeted(auth()->user(), $lweet));
+            if (! auth()->user()->authorizeProfile($lweet->user)) {
+                $lweet->user->notify(new Relweeted(auth()->user(), $lweet));
+            }
         }
 
         return back();
