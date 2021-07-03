@@ -9,7 +9,9 @@
 						<div class="media">
 							<div class="media-left">
 								<div class="media-object">
-									<img src="{{ $notification->data['user']['profile'] }}" class="img-circle" alt="Profile" width="60" height="60">
+									<a href="profiles/{{ $notification->data['user']['username'] }}">
+										<img src="{{ $notification->data['user']['profile'] }}" class="img-circle" alt="Profile" width="60" height="60">
+									</a>
 								</div>
 							</div>
 							<div class="media-body" style="padding-left: 10px">
