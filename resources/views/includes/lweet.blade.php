@@ -1,22 +1,29 @@
 <div class="card border rounded mb-2">
     <div class="card-body">
-        <a href="{{ $lweet->user->profilePath() }}">
-            <img class="rounded-circle" src="{{ $lweet->user->profile }}" alt="profile" width="50" height="50">
-            <h4 class="card-title">{{ $lweet->user->name }}</h4>
-        </a>
-        <h6 class="text-muted card-subtitle mb-2">{{ $lweet->created_at->diffForHumans() }}</h6>
-        <p class="card-text">
-            @if ($lweet->matchMention())
-                <a href="/profiles/{{ $lweet->stripString() }}">{{ $lweet->body }}</a>
-            @else
-                {{ $lweet->body }}
-            @endif
-        </p>
-        @if ($lweet->image)
-            <div class="pb-3">
-                <img class="rounded img-fluid border" src="{{ $lweet->image }}" />
+        <div class="row">
+            <div class="col-sm-8">
+                <a href="{{ $lweet->user->profilePath() }}">
+                    <img class="rounded-circle" src="{{ $lweet->user->profile }}" alt="profile" width="50" height="50">
+                    <h4 class="card-title">{{ $lweet->user->name }}</h4>
+                </a>
+                <h6 class="text-muted card-subtitle mb-2">{{ $lweet->created_at->diffForHumans() }}</h6>
+                <p class="card-text">
+                    @if ($lweet->matchMention())
+                        <a href="/profiles/{{ $lweet->stripString() }}">{{ $lweet->body }}</a>
+                    @else
+                        {{ $lweet->body }}
+                    @endif
+                </p>
+                @if ($lweet->image)
+                    <div class="pb-3">
+                        <img class="rounded img-fluid border" src="{{ $lweet->image }}" />
+                    </div>
+                @endif
             </div>
-        @endif
+            <div class="col-sm-4" align="right">
+                <a href="{{ route('lweets.show', $lweet) }}" class="btn btn-info">View Lweet</a>
+            </div>
+        </div>
         <div style="justify-content: space-between;display: flex;">
             <form method="POST" action="{{ route('lweets.relweet.store', $lweet) }}">
                 @csrf

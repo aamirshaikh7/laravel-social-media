@@ -59,9 +59,9 @@ class LweetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Lweet $lweet)
     {
-        //
+        return view('lweets.show', ['lweet' => $lweet]);
     }
 
     /**
