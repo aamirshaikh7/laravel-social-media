@@ -20,9 +20,6 @@
                     </div>
                 @endif
             </div>
-            <div class="col-sm-4" align="right">
-                <a href="{{ route('lweets.show', $lweet) }}" class="btn btn-info">View Lweet</a>
-            </div>
         </div>
         <div style="justify-content: space-between;display: flex;">
             <form method="POST" action="{{ route('lweets.relweet.store', $lweet) }}">
