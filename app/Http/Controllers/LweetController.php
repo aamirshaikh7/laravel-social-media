@@ -82,9 +82,20 @@ class LweetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Lweet $lweet)
     {
-        //
+        $attributes = request()->validate([
+            'body' => ['required', 'string', 'max:255'],
+            'image' => ['file']
+        ]);
+
+        if (request('image')) {
+            $attributes['image'] = request('image')->store('images');
+        }
+
+        $lweet->update($attributes);
+
+        return redirect(route('home'));
     }
 
     /**

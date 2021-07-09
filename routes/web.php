@@ -26,6 +26,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/lweets/{lweet}/edit', [App\Http\Controllers\LweetController::class, 'edit'])->name('lweets.edit');
     
+    Route::put('/lweets/{lweet}', [App\Http\Controllers\LweetController::class, 'update'])->name('lweets.update');
+    
     Route::post('/lweets/{lweet}/like', [App\Http\Controllers\LikeController::class, 'store'])->name('lweets.like.store');
 
     Route::post('/lweets/{lweet}/relweet', [App\Http\Controllers\RelweetController::class, 'store'])->name('lweets.relweet.store');
