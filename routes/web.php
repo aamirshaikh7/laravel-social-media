@@ -32,6 +32,8 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/lweets/{lweet}/relweet', [App\Http\Controllers\RelweetController::class, 'store'])->name('lweets.relweet.store');
     
+    Route::delete('/lweets/{lweet}', [App\Http\Controllers\LweetController::class, 'destroy'])->name('lweets.destroy');
+    
     Route::get('profiles/{user:username}', [App\Http\Controllers\ProfileController::class, 'show'])->name('profiles.show');
     
     Route::get('/profiles/{user:username}/edit', [App\Http\Controllers\ProfileController::class, 'edit'])->name('profiles.edit');
